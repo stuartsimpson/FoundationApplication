@@ -6,7 +6,7 @@ var router = require('./router');
 var error = require('./error');
 var server = require('./server');
 
-var app = require('../app');
+var app = require('../../app');
 
 module.exports = function init(){
     'use strict';

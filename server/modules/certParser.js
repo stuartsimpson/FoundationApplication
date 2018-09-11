@@ -3,7 +3,7 @@ var config = require('../config');
 
 module.exports = {
     parsePrivate: function () {
-        var fileText = fs.readFileSync(config.env.path.certificates + "/" + config.env.jwt.privateCertFile, 'utf8');
+        var fileText = fs.readFileSync(config.env.jwt.certificates + "/" + config.env.jwt.privateCertFile, 'utf8');
         var certFile = fileText.split("\r\n");
         var cert = {};
 

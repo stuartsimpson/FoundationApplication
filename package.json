@@ -1,45 +1,47 @@
 {
-    "name": "fileuploadmren",
-    "version": "1.0.0",
-    "description": "This is an application to upload files to a MongoDB.",
-    "main": "index.js",
-    "scripts": {
-        "start": "node app.js",
-        "dev": "nodemon app.js"
-    },
-    "author": "Stuart Simpson",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/stuartsimpson/FoundationApplication.git"
-    }
-    "dependencies": {
-        "@material-ui/core": "^3.0.2",
-        "body-parser": "^1.18.3",
-        "cookie-parser": "^1.4.3",
-        "express": "^4.16.3",
-        "express-jwt": "^5.3.1",
-        "gridfs-stream": "^1.1.1",
-        "method-override": "^3.0.0",
-        "mongoose": "^5.2.13",
-        "morgan": "^1.9.0",
-        "multer": "^1.3.1",
-        "multer-gridfs-storage": "^3.2.0",
-        "react": "^16.5.0",
-        "react-dom": "^16.5.0",
-        "serve-favicon": "^2.5.0",
-        "twilio": "^3.19.2",
-        "winston": "^3.1.0"
-    },
-    "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-loader": "^8.0.2",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-react": "^6.24.1",
-        "html-webpack-plugin": "^3.2.0",
-        "nodemon": "^1.18.4",
-        "webpack": "^4.17.2",
-        "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.8"
-    }
+  "name": "FoundationApplication",
+  "version": "1.0.0",
+  "description": "This is an application to upload files to a MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Stuart Simpson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stuartsimpson/FoundationApplication.git"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.0.2",
+    "bluebird": "^3.5.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "gridfs-stream": "^1.1.1",
+    "less-middleware": "^3.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.2.13",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.1",
+    "multer-gridfs-storage": "^3.2.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "serve-favicon": "^2.5.0",
+    "twilio": "^3.19.2",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.4",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  }
 }
