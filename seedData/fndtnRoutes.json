@@ -1,0 +1,14 @@
+{ "_id" : { "$oid" : "58fbfaa8d65ad123a8754f8d" }, "file" : "/services/index", "url" : "/services", "static" : false, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "5900c3a1d2e34328f0c277a4" }, "file" : "/services/public/user/authentication", "url" : "/services/public/user/authentication", "static" : false, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "597e67573e9ee92730b8dd97" }, "file" : "/services/public/user/registration", "url" : "/services/public/user/registration", "static" : false, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "598dd29c79a5732d308105e3" }, "file" : "/index.html", "url" : "/", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "598dd45479a5732d308105e4" }, "file" : "/dist/fndtnUserAccount/index.html", "url" : "/dist/fndtnUserAccount", "static" : true, "public" : false, "protected" : false }
+{ "_id" : { "$oid" : "598dd46d79a5732d308105e5" }, "file" : "/dist/fndtnUserRegistration/index.html", "url" : "/dist/fndtnUserRegistration", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "598ddfb479a5732d308105e6" }, "file" : "/dist/fndtnRouteManger/index.html", "url" : "/dist/fndtnRouteManager", "static" : true, "public" : false, "protected" : true }
+{ "_id" : { "$oid" : "598e063479a5732d308105e7" }, "file" : "/dist/core/bundle.js", "url" : "/dist/core", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "598e065879a5732d308105e8" }, "file" : "/dist/nodeModules/bundle.js", "url" : "/dist/nodeModules", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "598f7e8879a573042c6eab37" }, "file" : "/services/private/fndtn/routes", "url" : "/services/private/fndtn/routes", "static" : false, "public" : false, "protected" : true }
+{ "_id" : { "$oid" : "59af21cef0d3691e0c88956d" }, "file" : "/dist/webpackStats.html", "url" : "/dist/webpackStats.html", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "59b82ce2e5a94d2f681cf390" }, "file" : "dist/fndtnUserAccountManager/index.html", "url" : "/dist/fndtnUserAccountManager", "static" : true, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "59c07e90d5391a2e208dc78d" }, "file" : "/services/private/fndtn/userAccountManager", "url" : "/services/private/fndtn/userAccountManager", "static" : false, "public" : true, "protected" : false }
+{ "_id" : { "$oid" : "59cd42331098f21110ce2af8" }, "file" : "/services/private/fndtn/users", "url" : "/services/private/fndtn/users", "static" : false, "public" : false, "protected" : false }
