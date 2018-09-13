@@ -1,21 +1,31 @@
 const path = require('path');
 const fs = require('fs');
+const mongoose = require('mongoose');
+
+const config = require('./server/config.js');
 
 var fileList = [];
 
-function listDirectory(dir){
+function listDirectory(dir, list){
   var files = fs.readdirSync(dir);
   files.forEach( file=>{
       if(fs.lstatSync(dir+'/'+file).isDirectory()){
-        listDirectory(dir+'/'+file);
+        listDirectory(dir+'/'+file, list);
       } else {
-        fileList.push(file);
-        console.log('File: '+dir+'/'+file)
+        process.stdout.write('.');
+        list.push(dir+'/'+file);
       }
   });
+  return(list);
 }
 
-listDirectory('./server');
+function loadRoutes(){
 
-console.log(__dirname);
-console.log(__filename);
+}
+
+fileList = listDirectory('./server/routes', fileList);
+console.log('Done');
+
+fileList.forEach( file =>{
+  console.log(file);
+});
