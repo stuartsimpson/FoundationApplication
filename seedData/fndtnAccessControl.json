@@ -1,3 +1,3 @@
-{ "_id" : { "$oid" : "58fe22e7d65ad123a8754f8f" }, "resourceId" : { "$oid" : "58fbfaa8d65ad123a8754f8d" }, "userId" : { "$oid" : "58fe21f3d65ad123a8754f8e" }, "get" : true, "post" : true, "put" : true, "delete" : true }
-{ "_id" : { "$oid" : "598e94d679a573042c6eab36" }, "resourceId" : { "$oid" : "598f7e8879a573042c6eab37" }, "userId" : { "$oid" : "58fe21f3d65ad123a8754f8e" }, "get" : true, "post" : true, "put" : true, "delete" : true }
-{ "_id" : { "$oid" : "599618422a16be33a0f87a8f" }, "resourceId" : { "$oid" : "598ddfb479a5732d308105e6" }, "userId" : { "$oid" : "58fe21f3d65ad123a8754f8e" }, "get" : true, "post" : true, "put" : true, "delete" : true }
+{"_id":{"$oid":"58fe22e7d65ad123a8754f8f"},"resourceId":{"$oid":"58fbfaa8d65ad123a8754f8d"},"userId":{"$oid":"58fe21f3d65ad123a8754f8e"},"get":true,"post":true,"put":true,"delete":true}
+{"_id":{"$oid":"598e94d679a573042c6eab36"},"resourceId":{"$oid":"598f7e8879a573042c6eab37"},"userId":{"$oid":"58fe21f3d65ad123a8754f8e"},"get":true,"post":true,"put":true,"delete":true}
+{"_id":{"$oid":"599618422a16be33a0f87a8f"},"resourceId":{"$oid":"598ddfb479a5732d308105e6"},"userId":{"$oid":"58fe21f3d65ad123a8754f8e"},"get":true,"post":true,"put":true,"delete":true}

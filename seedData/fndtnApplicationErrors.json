@@ -1,6 +1,6 @@
-{ "_id" : { "$oid" : "59ea3d237e63850af441982d" }, "number" : 1001, "type" : "app", "message" : "Access denied faild authentication verification.", "linkURL" : "/#/authenticate", "linkDisplay" : "Login" }
-{ "_id" : { "$oid" : "59ea3fd87e63850af441982e" }, "number" : 1002, "type" : "app", "message" : "Access denied insufficient privilages.", "linkURL" : "/", "linkDisplay" : "Home" }
-{ "_id" : { "$oid" : "59ea84da7e63850af441982f" }, "number" : 1003, "type" : "app", "message" : "Invalid User" }
-{ "_id" : { "$oid" : "59ea85437e63850af4419830" }, "number" : 1004, "type" : "app", "message" : "Error while trying to save the user." }
-{ "_id" : { "$oid" : "59ea86487e63850af4419831" }, "number" : 1005, "type" : "app", "message" : "Attempting to save a user other than your self." }
-{ "_id" : { "$oid" : "59ea875a7e63850af4419832" }, "number" : 1006, "type" : "app", "message" : "Error finding user." }
+{"_id":{"$oid":"59ea3d237e63850af441982d"},"number":1001,"type":"APP","message":"Access denied faild authentication verification","linkURL":"/#/authenticate","linkDisplay":"Login"}
+{"_id":{"$oid":"59ea3fd87e63850af441982e"},"number":1002,"type":"APP","message":"Access denied insufficient privilages.","linkURL":"/","linkDisplay":"Home"}
+{"_id":{"$oid":"59ea84da7e63850af441982f"},"number":1003,"type":"APP","message":"Invalid User"}
+{"_id":{"$oid":"59ea85437e63850af4419830"},"number":1004,"type":"APP","message":"Error while trying to save the user."}
+{"_id":{"$oid":"59ea86487e63850af4419831"},"number":1005,"type":"APP","message":"Attempting to save a user other than your self."}
+{"_id":{"$oid":"59ea875a7e63850af4419832"},"number":1006,"type":"APP","message":"Error finding user."}

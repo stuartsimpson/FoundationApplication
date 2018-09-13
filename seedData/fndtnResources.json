@@ -1,0 +1,21 @@
+{"_id":{"$oid":"58fbfaa8d65ad123a8754f8d"},"name":"ServicesList","file":"/services/index.js","url":"/services","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"5900c3a1d2e34328f0c277a4"},"name":"AuthenticationServices","file":"/services/public/user/authentication.js","url":"/services/public/user/authentication","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"597e67573e9ee92730b8dd97"},"name":"RegistrationService","file":"/services/public/user/registration.js","url":"/services/public/user/registration","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"598dd29c79a5732d308105e3"},"name":"Home","file":"/index.html","url":"/","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"598dd45479a5732d308105e4"},"name":"User Account Form","file":"/dist/fndtnUserAccount/index.html","url":"/dist/fndtnUserAccount","static":true,"public":false,"protected":false}
+{"_id":{"$oid":"598dd46d79a5732d308105e5"},"name":"User Registration Form","file":"/dist/fndtnUserRegistration/index.html","url":"/dist/fndtnUserRegistration","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"598ddfb479a5732d308105e6"},"name":"Resource Manager Form","file":"/dist/fndtnResourceManger/index.html","url":"/dist/fndtnResourceManager","static":true,"public":false,"protected":true}
+{"_id":{"$oid":"598e063479a5732d308105e7"},"name":"Core Application","file":"/dist/core/bundle.js","url":"/dist/core","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"598e065879a5732d308105e8"},"name":"Node Modules","file":"/dist/nodeModules/bundle.js","url":"/dist/nodeModules","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"598f7e8879a573042c6eab37"},"name":"ResourceServices","file":"/services/private/fndtn/resources.js","url":"/services/private/fndtn/resources","static":false,"public":false,"protected":true}
+{"_id":{"$oid":"59af21cef0d3691e0c88956d"},"name":"Webpack Stats","file":"/dist/webpackStats.html","url":"/dist/webpackStats.html","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"59b82ce2e5a94d2f681cf390"},"name":"User Account Manager Form","file":"dist/fndtnUserAccountManager/index.html","url":"/dist/fndtnUserAccountManager","static":true,"public":true,"protected":false}
+{"_id":{"$oid":"59c07e90d5391a2e208dc78d"},"name":"UserAccountManagerServices","file":"/services/private/fndtn/userAccountManager.js","url":"/services/private/fndtn/userAccountManager","static":false,"public":false,"protected":false}
+{"_id":{"$oid":"59cd42331098f21110ce2af8"},"name":"UserServices","file":"/services/private/fndtn/users.js","url":"/services/private/fndtn/users","static":false,"public":false,"protected":false}
+{"_id":{"$oid":"59f1e8b75b5f4524dc2e71f7"},"name":"Role Manager Form","file":"/dist/fndtnRoleManger/index.html","url":"/dist/fndtnRoleManager","static":true,"public":false,"protected":false}
+{"_id":{"$oid":"5a0bcf521d77e638f815862f"},"name":"RoleManagerServices","file":"/services/private/fndtn/roles.js","url":"/services/private/fndtn/roles","static":false,"public":false,"protected":false}
+{"_id":{"$oid":"5a18cc3b72f53528147caa58"},"name":"TestRouteService","file":"/services/private/fndtn/testRoute.js","url":"/services/private/object","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"5a5b999cb0aa9d1ab476fa46"},"name":"RoleResourcesService","file":"/services/private/fndtn/roleResources.js","url":"/services/private/fndtn/roleResources","static":false,"public":false,"protected":false}
+{"_id":{"$oid":"5a6189e011f428268c9e3dd6"},"name":"DirectoryListingService","file":"/services/private/listServicePackages.js","url":"/services/private/listServicePackages","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"5a6dcbb95405d63998a1ca73"},"name":"Access Control Manager","file":"/dist/fndtnAccessControlManager","url":"/dist/fndtnAccessControlManager","static":true,"public":false,"protected":false}
+{"_id":{"$oid":"5a6ed4a31082dc46c82673fc"},"name":"MenuServices","file":"/services/private/fndtn/menus.js","url":"/services/private/fndtn/menus","static":false,"public":false,"protected":false}
