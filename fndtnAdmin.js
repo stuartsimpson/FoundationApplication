@@ -1,10 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+const readline = require('readline');
 const mongoose = require('mongoose');
 
 const config = require('./server/config.js');
-
-var fileList = [];
 
 function listDirectory(dir, list){
   var files = fs.readdirSync(dir);
@@ -19,13 +18,54 @@ function listDirectory(dir, list){
   return(list);
 }
 
-function loadRoutes(){
-
+function fixRecord( line ) {
+  let oidRegX = new RegExp(/\{\"\$oid\"\:\"([a-z,0-9]+)\"\}/g);
+  let dateRegX = new RegExp(/\{\"\$date\"\:\"([,0-9,\-,T,:\.,Z]+)\"\}/g);
+  let newLine = line.replace(oidRegX, (match, p1)=>{return(`"${p1}"`)});
+  newLine = newLine.replace(dateRegX, (match, p1)=>{return(`"${p1}"`)});
+  return(newLine);
 }
 
-fileList = listDirectory('./server/routes', fileList);
-console.log('Done');
+function loadSeedData(model){
+  mongoose.connect(`mongodb://${config.env.mongo.host}:${config.env.mongo.port}/${config.env.mongo.db}`);
+  var db = mongoose.connection;
+  var dynamicSchema = require(`./schema/${model}.js`);
+  var mongooseSchema = new mongoose.Schema(dynamicSchema);
+  var mongooseModel = mongoose.model(model, mongooseSchema);
 
-fileList.forEach( file =>{
-  console.log(file);
-});
+  var loadFile = readline.createInterface({
+    input: fs.createReadStream(`./seedData/${model}.json`),
+  })
+
+  loadFile.on('line', (line) => {
+    line = fixRecord(line);
+    var tempJSON = JSON.parse(line);
+    var record = new mongooseModel(tempJSON);
+    record.save((error, record) => {
+      if(error){
+        console.log('unable to load record to mongodb');
+        console.log(error.message);
+      } else {
+        console.log(`${model}: ${record._id} loaded to mongodb`);
+      }
+    });
+  })
+  .on('close', (line)=>{
+    if(line){
+      console.log('record not processed');
+      console.log(JSON.parse(line));
+    }
+    console.log('EOF');
+    db.close();
+  });
+}
+
+switch (process.argv[2]) {
+  case 'loadSeedData': {
+    loadSeedData(process.argv[3])
+    break;
+  }
+  default: {
+    console.log('// TODO: need to add fndtnAdmin');
+  }
+}

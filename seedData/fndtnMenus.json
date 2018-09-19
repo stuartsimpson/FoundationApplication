@@ -1,2 +1,2 @@
-{"_id":{"$oid":"59e3d45eab2d63052828c1c3"},"menuType":"menuItem","resourceURL":"/dist/fndtnUserAccount","display":"User Account"}
-{"_id":{"$oid":"5a6f79d2dbddab0c18af49b0"},"display":"User Account Manager","menuType":"menuItem","resourceURL":"/dist/fndtnUserAccountManager"}
+{"_id":{"$oid":"59e3d45eab2d63052828c1c3"},"menuType":"menuItem","resourceURL":"/fndtn/fndtnUserAccount","display":"User Account"}
+{"_id":{"$oid":"5a6f79d2dbddab0c18af49b0"},"display":"User Account Manager","menuType":"menuItem","resourceURL":"/fndtn/fndtnUserAccountManager"}
