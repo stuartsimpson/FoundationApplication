@@ -11,7 +11,7 @@ var applicationErrorHandler = {
             if(error){
                 resolve(error);
             } else {
-                var collection = config.env.app.db.collection(config.env.collections.applicationErrors);
+                var collection = config.app.db.collection(config.collections.applicationErrors);
 
                 collection.findOne({ number: number, type: type }, function(error, appError){
                     if(error || !appError){

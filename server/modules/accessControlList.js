@@ -16,11 +16,11 @@ var acl = {
             } else if (acl._id){
                 return (acl);
             } else {
-                return (config.env.security.resourceDefaults);
+                return (config.security.resourceDefaults);
             }
         }
 
-        return (config.env.security.resourceDefaults);
+        return (config.security.resourceDefaults);
     },
 
     addResourceToACL: function (key, value) {

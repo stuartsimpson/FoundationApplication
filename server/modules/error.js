@@ -1,11 +1,11 @@
-var config = require('../config');
+var config = require('../../config');
 var applicationErrorHandler = require('./applicationErrorHandler');
 var app = require('../../app');
 
 module.exports = function(routerInit){
     'use strict';
 
-    config.env.logger.info('Step 4 - error.init');
+    config.logger.info('Step 4 - error.init');
 
     app.use(function(req, res, next) {
         var kvp=req.url.substr(1).split('/');
@@ -26,7 +26,7 @@ module.exports = function(routerInit){
     // will print stacktrace
     if (app.get('env') === 'development') {
         app.use(function(err, req, res, next) {
-            config.env.logger.info('Development Error Loging');
+            config.logger.info('Development Error Loging');
             res.status(err.status || 500);
             res.render('error', {
             message: err.message,

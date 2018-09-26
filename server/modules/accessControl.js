@@ -7,15 +7,15 @@ var acl = require('./accessControlList');
 
 function accessControl(req, res, next) {
     var resource = acl.getResourceId(req.url);
-    var collection = config.env.app.db.collection(config.env.collections.accessControl);
+    var collection = config.app.db.collection(config.collections.accessControl);
 
-    config.env.logger.debug("AccessControl:Resource._id:" + resource._id );
+    config.logger.debug("AccessControl:Resource._id:" + resource._id );
 
     if(resource._public){
         //Access Granted
         next();
     } else {
-        jwt.verify(req.cookies.authenticationToken, config.env.jwt.cert.private, function(error, decoded){
+        jwt.verify(req.cookies.authenticationToken, config.jwt.cert.private, function(error, decoded){
             if(error){
                 if(resource._static){
                     res.cookie('destinationURL', req.url);
@@ -23,7 +23,7 @@ function accessControl(req, res, next) {
                 } else {
                     applicationErrorHandler.getError('APP',1002).then(
                         (error) => {
-                            config.env.logger.warn(error);
+                            config.logger.warn(error);
                             res.status(401).send(error);
                         }
                     );
@@ -47,7 +47,7 @@ function accessControl(req, res, next) {
                             } else {
                                 applicationErrorHandler.getError('APP',1001).then(
                                     (error) => {
-                                        config.env.logger.warn(error);
+                                        config.logger.warn(error);
                                         res.status(401).send(error);
                                     }
                                 );
