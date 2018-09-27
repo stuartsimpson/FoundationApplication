@@ -49,7 +49,7 @@ function _findById(req, res, next){
   if(req.params.id.search(/[^a-z0-9]+/g)){
     res.setHeader('Content-Type', 'application/json');
     res.status(400);
-    res.send(new Error('Malformed parameter can not process request.'));
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
   } else {
     let mongooseModel = loadDataModel(req.params.model);
 
@@ -72,24 +72,28 @@ function _findById(req, res, next){
 //------------------------------------------------------------------------------
 function _insert(req, res, next) {
   try {
-    let mongooseModel = loadDataModel(req.params.model);
+    if(req.body.data){
+      let mongooseModel = loadDataModel(req.params.model);
 
-    let doc = req.body.data ?
-      JSON.parse(req.body.data) :
-      throw new Error(`req.body.data undefined for ${req.params.model}`);
-    let options = req.body.options?JSON.parse(req.body.options):undefined;
+      let doc = JSON.parse(req.body.data);
+      let options = req.body.options?JSON.parse(req.body.options):undefined;
 
-    mongooseModel.create(doc, options, (error, doc)=>{
-      if(error){
-        res.setHeader('Content-Type', 'application/json');
-        res.status(400);
-        res.send(JSON.stringify(error));
-      } else {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200);
-        res.send(JSON.stringify(doc));
-      }
-    });
+      mongooseModel.create(doc, options, (error, doc)=>{
+        if(error){
+          res.setHeader('Content-Type', 'application/json');
+          res.status(400);
+          res.send(JSON.stringify(error));
+        } else {
+          res.setHeader('Content-Type', 'application/json');
+          res.status(200);
+          res.send(JSON.stringify(doc));
+        }
+      });
+    } else {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400);
+      res.send(JSON.stringify(new Error(`req.body.data undefined for ${req.params.model}`)));
+    }
   } catch (e) {
     res.setHeader('Content-Type', 'application/json');
     res.status(400);
@@ -104,14 +108,16 @@ function _update(req, res, next) {
   if(req.params.id.search(/[^a-z0-9]+/g)){
     res.setHeader('Content-Type', 'application/json');
     res.status(400);
-    res.send(new Error('Malformed parameter can not process request.'));
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
+  } else if(!req.body.data){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400);
+    res.send(JSON.stringify(new Error(`req.body.data undefined for ${req.params.model}`)));
   } else {
     try {
       let mongooseModel = loadDataModel(req.params.model);
 
-      let doc = req.body.data ?
-        JSON.parse(req.body.data) :
-        throw new Error(`req.body.data undefined for ${req.params.model}`);
+      let doc = JSON.parse(req.body.data);
 
       if(req.params.id !== doc._id){
         res.setHeader('Content-Type', 'application/json');
@@ -145,11 +151,11 @@ function _delete(req, res, next) {
   if(req.params.id.search(/[^a-z0-9]+/g)){
     res.setHeader('Content-Type', 'application/json');
     res.status(400);
-    res.send(new Error('Malformed parameter can not process request.'));
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
   } else {
     let mongooseModel = loadDataModel(req.params.model);
 
-    mongooseModel.findById(req.params.id,(error, doc) =>{
+    mongooseModel.deleteOne({_id:req.params.id},(error) =>{
       if(error){
         res.setHeader('Content-Type', 'application/json');
         res.status(400);
@@ -157,7 +163,7 @@ function _delete(req, res, next) {
       } else {
         res.setHeader('Content-Type', 'application/json');
         res.status(200);
-        res.send(JSON.stringify(doc));
+        res.send(JSON.stringify({_id: req.params.id, status:'deleted' }));
       }
     });
   }

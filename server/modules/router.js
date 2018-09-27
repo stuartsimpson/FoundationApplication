@@ -22,7 +22,7 @@ function registerResources(resources){
             if(fs.existsSync(path.join(config.path.routes, resource.file))){
                 app.use(resource.url, require(path.join(config.path.routes,resource.file)));
             } else {
-                config.logger.error('\tError Loading Resource:'+resource.url+'. Resource File does not exist.');
+                config.logger.error('\tError Loading Resource:'+resource.file+'. Resource File does not exist.');
             }
         }
     });

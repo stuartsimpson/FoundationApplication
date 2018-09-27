@@ -1,14 +1,14 @@
 var path = require('path');
 var winston = require('winston');
 
-const logger = new (winston.Logger)({
-  transports: [new (winston.transports.Console)({
-        level: 'debug',
-        colorize: true,
-        timestamp: function () {
-            return (new Date()).toISOString();
-        }
-    })]
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.combine(
+    winston.format.colorize({level: true}),
+    winston.format.timestamp(),
+    winston.format.printf( info => {return `${info.timestamp} [${info.level}]: ${info.message}`})
+  ),
+  transports: [new winston.transports.Console({level:'silly'})]
 });
 
 var root = path.resolve('.');
@@ -28,7 +28,7 @@ var config = {
     path:{
         root:root,
         modules:{},
-        routes:path.join(root,'routes'),
+        routes:path.join(root,'server'),
         views:path.join(root,'views'),
         public:path.join(root,'public'),
         templateCompiler:path.join(root,'modules/templateCompiler'),

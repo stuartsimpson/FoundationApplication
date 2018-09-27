@@ -1,6 +1,6 @@
 {"_id":{"$oid":"58fbfaa8d65ad123a8754f8d"},"name":"ServicesList","file":"/services/index.js","url":"/services","static":false,"public":true,"protected":false}
-{"_id":{"$oid":"5900c3a1d2e34328f0c277a4"},"name":"AuthenticationServices","file":"/routes/fndtn/user/authentication.js","url":"/service/fndtn/user/authentication","static":false,"public":true,"protected":false}
-{"_id":{"$oid":"597e67573e9ee92730b8dd97"},"name":"RegistrationService","file":"/routes/fndtn/user/registration.js","url":"/service/fndtn/user/registration","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"5900c3a1d2e34328f0c277a4"},"name":"AuthenticationServices","file":"/routes/fndtn/users/authentication.js","url":"/service/fndtn/users/authentication","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"597e67573e9ee92730b8dd97"},"name":"RegistrationService","file":"/routes/fndtn/users/registration.js","url":"/service/fndtn/users/registration","static":false,"public":true,"protected":false}
 {"_id":{"$oid":"598dd29c79a5732d308105e3"},"name":"Home","file":"/index.html","url":"/","static":true,"public":true,"protected":false}
 {"_id":{"$oid":"598dd45479a5732d308105e4"},"name":"User Account Form","file":"/dist/fndtnUserAccount/index.html","url":"/dist/fndtnUserAccount","static":true,"public":false,"protected":false}
 {"_id":{"$oid":"598dd46d79a5732d308105e5"},"name":"User Registration Form","file":"/dist/fndtnUserRegistration/index.html","url":"/dist/fndtnUserRegistration","static":true,"public":true,"protected":false}
@@ -16,6 +16,7 @@
 {"_id":{"$oid":"5a0bcf521d77e638f815862f"},"name":"RoleManagerServices","file":"/routes/fndtn/management/roles.js","url":"/service/fndtn/management/roles","static":false,"public":false,"protected":false}
 {"_id":{"$oid":"5a18cc3b72f53528147caa58"},"name":"TestRouteService","file":"/routes/fndtn/management/testRoute.js","url":"/service/object","static":false,"public":true,"protected":false}
 {"_id":{"$oid":"5a5b999cb0aa9d1ab476fa46"},"name":"RoleResourcesService","file":"/routes/fndtn/management/roleResources.js","url":"/service/fndtn/management/roleResources","static":false,"public":false,"protected":false}
-{"_id":{"$oid":"5a6189e011f428268c9e3dd6"},"name":"DirectoryListingService","file":"/routes/listServicePackages.js","url":"/service/listServicePackages","static":false,"public":true,"protected":false}
+{"_id":{"$oid":"5a6189e011f428268c9e3dd6"},"name":"DirectoryListingService","file":"/routes/fndtn/management/listServicePackages.js","url":"/service/fndtn/management/listServicePackages","static":false,"public":true,"protected":false}
 {"_id":{"$oid":"5a6dcbb95405d63998a1ca73"},"name":"Access Control Manager","file":"/dist/fndtnAccessControlManager","url":"/dist/fndtnAccessControlManager","static":true,"public":false,"protected":false}
 {"_id":{"$oid":"5a6ed4a31082dc46c82673fc"},"name":"MenuServices","file":"/routes/fndtn/management/menus.js","url":"/service/fndtn/management/menus","static":false,"public":false,"protected":false}
+{"_id":{"$oid":"5babfd89410156bea00cefee"},"name":"ModelServices","file":"/routes/fndtn/model/document.js","url":"/service/fndtn/model","static":false,"public":true,"protected":false}

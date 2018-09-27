@@ -1,4 +1,4 @@
-var config = require('../../config');
+var config = require('../config');
 var applicationErrorHandler = require('./applicationErrorHandler');
 var app = require('../../app');
 
