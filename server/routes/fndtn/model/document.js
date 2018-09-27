@@ -17,27 +17,27 @@ function loadDataModel(model){
 //
 //------------------------------------------------------------------------------
 function _find(req, res, next){
-  let mongooseModel = loadDataModel(req.params.model);
-
   try {
-    let query = JSON.parse(req.body.query);
-    let projection = JSON.parse(req.body.projection);
-    let options = JSON.parse(req.body.options);
+    let mongooseModel = loadDataModel(req.params.model);
+
+    let query = req.body.query?JSON.parse(req.body.query):undefined;
+    let projection = req.body.projection?JSON.parse(req.body.projection):undefined;
+    let options = req.body.options?JSON.parse(req.body.options):undefined;
 
     mongooseModel.find(query, projection, options, (error, docs) => {
       if(error){
         res.setHeader('Content-Type', 'application/json');
-        res.status(400)
+        res.status(400);
         res.send(JSON.stringify(error));
       } else {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200)
+        res.status(200);
         res.send(JSON.stringify(docs));
       }
     });
   } catch (e) {
     res.setHeader('Content-Type', 'application/json');
-    res.status(400)
+    res.status(400);
     res.send(JSON.stringify(e));
   }
 };
@@ -48,59 +48,125 @@ function _find(req, res, next){
 function _findById(req, res, next){
   if(req.params.id.search(/[^a-z0-9]+/g)){
     res.setHeader('Content-Type', 'application/json');
-    res.status(400)
-    res.send(JSON.stringify(error));
+    res.status(400);
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
   } else {
     let mongooseModel = loadDataModel(req.params.model);
 
     mongooseModel.findById(req.params.id,(error, doc) =>{
       if(error){
         res.setHeader('Content-Type', 'application/json');
-        res.status(400)
+        res.status(400);
         res.send(JSON.stringify(error));
       } else {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200)
+        res.status(200);
         res.send(JSON.stringify(doc));
       }
     });
   }
-
 };
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
 function _insert(req, res, next) {
-  let mongooseModel = loadDataModel(req.params.model);
-  let doc = JSON.parse(req.body.data);
-  let options = JSON.parse(req.body.options);
+  try {
+    if(req.body.data){
+      let mongooseModel = loadDataModel(req.params.model);
 
-  mongooseModel.create(doc, options, (error, doc)=>{
-    if(error){
-      res.setHeader('Content-Type', 'application/json');
-      res.status(400)
-      res.send(JSON.stringify(error));
+      let doc = JSON.parse(req.body.data);
+      let options = req.body.options?JSON.parse(req.body.options):undefined;
+
+      mongooseModel.create(doc, options, (error, doc)=>{
+        if(error){
+          res.setHeader('Content-Type', 'application/json');
+          res.status(400);
+          res.send(JSON.stringify(error));
+        } else {
+          res.setHeader('Content-Type', 'application/json');
+          res.status(200);
+          res.send(JSON.stringify(doc));
+        }
+      });
     } else {
       res.setHeader('Content-Type', 'application/json');
-      res.status(200)
-      res.send(JSON.stringify(doc));
+      res.status(400);
+      res.send(JSON.stringify(new Error(`req.body.data undefined for ${req.params.model}`)));
     }
-  })
+  } catch (e) {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400);
+    res.send(JSON.stringify(e));
+  }
 };
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
 function _update(req, res, next) {
-  res.send('//todo: Need to create the generic _update service for persisting data models')
+  if(req.params.id.search(/[^a-z0-9]+/g)){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400);
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
+  } else if(!req.body.data){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400);
+    res.send(JSON.stringify(new Error(`req.body.data undefined for ${req.params.model}`)));
+  } else {
+    try {
+      let mongooseModel = loadDataModel(req.params.model);
+
+      let doc = JSON.parse(req.body.data);
+
+      if(req.params.id !== doc._id){
+        res.setHeader('Content-Type', 'application/json');
+        res.status(400);
+        res.send(new Error('req.params.id does not match doc._id'));
+      } else {
+        mongooseModel.update(doc, (error, response)=>{
+          if(error){
+            res.setHeader('Content-Type', 'application/json');
+            res.status(400);
+            res.send(JSON.stringify(error));
+          } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200);
+            res.send(JSON.stringify(response));
+          }
+        });
+      }
+    } catch (e) {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400);
+      res.send(JSON.stringify(e));
+    }
+  }
 };
 
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
 function _delete(req, res, next) {
-  res.send('//todo: Need to create the generic _delete service for persisting data models')
+  if(req.params.id.search(/[^a-z0-9]+/g)){
+    res.setHeader('Content-Type', 'application/json');
+    res.status(400);
+    res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
+  } else {
+    let mongooseModel = loadDataModel(req.params.model);
+
+    mongooseModel.deleteOne({_id:req.params.id},(error) =>{
+      if(error){
+        res.setHeader('Content-Type', 'application/json');
+        res.status(400);
+        res.send(JSON.stringify(error));
+      } else {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200);
+        res.send(JSON.stringify({_id: req.params.id, status:'deleted' }));
+      }
+    });
+  }
 };
 
 router.get('/findById/:model/:id', _findById);

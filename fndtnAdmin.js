@@ -27,7 +27,7 @@ function fixRecord( line ) {
 }
 
 function loadSeedData(model){
-  mongoose.connect(`mongodb://${config.env.mongo.host}:${config.env.mongo.port}/${config.env.mongo.db}`);
+  mongoose.connect(`mongodb://${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`,{useNewUrlParser: true});
   var db = mongoose.connection;
   var dynamicSchema = require(`./schema/${model}.js`);
   var mongooseSchema = new mongoose.Schema(dynamicSchema);

@@ -1,18 +1,18 @@
 var path = require('path');
 var winston = require('winston');
 
-const logger = new (winston.Logger)({
-  transports: [new (winston.transports.Console)({
-        level: 'debug',
-        colorize: true,
-        timestamp: function () {
-            return (new Date()).toISOString();
-        }
-    })]
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.combine(
+    winston.format.colorize({level: true}),
+    winston.format.timestamp(),
+    winston.format.printf( info => {return `${info.timestamp} [${info.level}]: ${info.message}`})
+  ),
+  transports: [new winston.transports.Console({level:'silly'})]
 });
 
 var root = path.resolve('.');
-var env = {
+var config = {
     server: {
         favicon: './public/images/gasPump.jpg',
         loggingLevel: 'dev'
@@ -28,7 +28,7 @@ var env = {
     path:{
         root:root,
         modules:{},
-        routes:path.join(root,'routes'),
+        routes:path.join(root,'server'),
         views:path.join(root,'views'),
         public:path.join(root,'public'),
         templateCompiler:path.join(root,'modules/templateCompiler'),
@@ -66,16 +66,28 @@ var env = {
         verifyURL: "https://www.google.com/recaptcha/api/siteverify"
     },
     mongo:{
-            "host":"127.0.0.1",
-            "db":"GasNGoReact",
-            "port":"27017"
+        "host":"127.0.0.1",
+        "db":"GasNGoReact",
+        "port":"27017"
+    },
+    neo4j:{
+        username:'neo4j',
+        password:'testing',
+        host:'localhost',
+        port:'7474',
+        protocol:'bolt://',
+        cypherEndpoint:'/db/data/cypher',
+        dirverConfig:{
+          maxConnectionPoolSize:1000,
+          connectionTimeout:1000
+        }
     },
     jwt:{
-            secret:"tonkesecure",
-            algorithm: 'HS512',
-            expiration:1500,  //in
-            privateCertFile: "private.ppk",
-            publicCertFile: "public"
+        secret:"tonkesecure",
+        algorithm: 'HS512',
+        expiration:1500,  //in
+        privateCertFile: "private.ppk",
+        publicCertFile: "public"
     },
     email:{
         smtp:{
@@ -129,4 +141,4 @@ var env = {
     }
 };
 
-module.exports.env = env;
+module.exports = config;

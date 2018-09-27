@@ -11,9 +11,9 @@ var port;
 module.exports = function(errorInit){
     'use strict';
 
-    config.env.logger.info('Step 5 - Starting Server');
+    config.logger.info('Step 5 - Starting Server');
     //var port = normalizePort(process.env.PORT || nconf.get('port'));
-    port = normalizePort(process.env.PORT || config.env.port);
+    port = normalizePort(process.env.PORT || config.port);
     app.set('port', port);
 
     /**
