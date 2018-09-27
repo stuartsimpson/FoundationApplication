@@ -4,8 +4,10 @@
   "description": "This is an application to upload files to a MongoDB.",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+      "start": "node bin/www",
+      "debug": "node --inspect --inspect-brk bin/www",
+      "nodeVersion": "node --version",
+      "build": "webpack --config webpack.config.js --watch --progress"
   },
   "author": "Stuart Simpson",
   "license": "MIT",
