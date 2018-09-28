@@ -33,8 +33,7 @@ var config = {
         public:path.join(root,'public'),
         templateCompiler:path.join(root,'modules/templateCompiler'),
         templateSource:path.join(root,'/views/templates'),
-        help:path.join(root,'views/help'),
-        certificates: path.join(root,'certificates')
+        help:path.join(root,'views/help')
     },
     collections:{
         resources:"fndtnResources",
@@ -87,7 +86,8 @@ var config = {
         algorithm: 'HS512',
         expiration:1500,  //in
         privateCertFile: "private.ppk",
-        publicCertFile: "public"
+        publicCertFile: "public",
+        certificates: path.join(root,'/server/certificates')
     },
     email:{
         smtp:{
