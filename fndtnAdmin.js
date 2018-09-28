@@ -30,7 +30,7 @@ function loadSeedData(model){
   mongoose.connect(`mongodb://${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`,{useNewUrlParser: true});
   var db = mongoose.connection;
   var dynamicSchema = require(`./schema/${model}.js`);
-  var mongooseSchema = new mongoose.Schema(dynamicSchema);
+  var mongooseSchema = new mongoose.Schema(dynamicSchema, {collection:model});
   var mongooseModel = mongoose.model(model, mongooseSchema);
 
   var loadFile = readline.createInterface({

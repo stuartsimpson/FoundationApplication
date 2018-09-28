@@ -6,25 +6,32 @@ var config = require('../../../config.js');
 var modelList = {};
 
 function loadDataModel(model){
-  if(!modelList[req.params.model]){
-    modelList[req.params.model] = require(`../../../../schema/${req.params.model}.js`);
+  if(!modelList[model]){
+    let schemaDefinition = require(`../../../../schema/${model}.js`);
+    let mongooseSchema = new mongoose.Schema(modelList[model], {collection: model});
+    modelList[model] = mongoose.model(model, mongooseSchema);
   };
-  var mongooseSchema = new mongoose.Schema(modelList[req.params.model]);
-  return(mongoose.model(req.params.model, mongooseSchema));
+  return(modelList[model]);
 }
 
-//------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------
+/**
+ * _find will search the MongoDB for the specified URL specified params:
+ * req.params.model
+ * the req.body can contain the following JSON elements:
+ * query - MongoDB query object
+ * projection - MongoDB projection object
+ * options - MongoDB options object
+ * The model must be defined in FoundationApplication/schema prior to using this
+ * service.
+ * @param       {Object}   req  http request object
+ * @param       {Object}   res  http response object
+ * @param       {Object} next unused
+  */
 function _find(req, res, next){
   try {
     let mongooseModel = loadDataModel(req.params.model);
 
-    let query = req.body.query?JSON.parse(req.body.query):undefined;
-    let projection = req.body.projection?JSON.parse(req.body.projection):undefined;
-    let options = req.body.options?JSON.parse(req.body.options):undefined;
-
-    mongooseModel.find(query, projection, options, (error, docs) => {
+    mongooseModel.find(req.body.query, req.body.projection, req.body.options, (error, docs) => {
       if(error){
         res.setHeader('Content-Type', 'application/json');
         res.status(400);
@@ -46,7 +53,7 @@ function _find(req, res, next){
 //
 //------------------------------------------------------------------------------
 function _findById(req, res, next){
-  if(req.params.id.search(/[^a-z0-9]+/g)){
+  if((/[^a-z0-9]+/g).test(req.params.id)){
     res.setHeader('Content-Type', 'application/json');
     res.status(400);
     res.send(JSON.stringify(new Error('Malformed parameter can not process request.')));
@@ -75,10 +82,7 @@ function _insert(req, res, next) {
     if(req.body.data){
       let mongooseModel = loadDataModel(req.params.model);
 
-      let doc = JSON.parse(req.body.data);
-      let options = req.body.options?JSON.parse(req.body.options):undefined;
-
-      mongooseModel.create(doc, options, (error, doc)=>{
+      mongooseModel.create(req.body.data, req.body.options, (error, doc)=>{
         if(error){
           res.setHeader('Content-Type', 'application/json');
           res.status(400);
@@ -117,14 +121,12 @@ function _update(req, res, next) {
     try {
       let mongooseModel = loadDataModel(req.params.model);
 
-      let doc = JSON.parse(req.body.data);
-
       if(req.params.id !== doc._id){
         res.setHeader('Content-Type', 'application/json');
         res.status(400);
         res.send(new Error('req.params.id does not match doc._id'));
       } else {
-        mongooseModel.update(doc, (error, response)=>{
+        mongooseModel.update(req.body.data, (error, response)=>{
           if(error){
             res.setHeader('Content-Type', 'application/json');
             res.status(400);
@@ -170,7 +172,7 @@ function _delete(req, res, next) {
 };
 
 router.get('/findById/:model/:id', _findById);
-router.get('/find/:model', _find);
+router.post('/find/:model', _find);
 router.put('/:model/:id', _update);
 router.post('/:model', _insert);
 router.delete('/:model/:id', _delete);

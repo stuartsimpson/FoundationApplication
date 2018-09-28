@@ -4,8 +4,8 @@
   "description": "This is an application to upload files to a MongoDB.",
   "main": "index.js",
   "scripts": {
-      "start": "node bin/www",
-      "debug": "node --inspect --inspect-brk bin/www",
+      "start": "node app",
+      "debug": "node --inspect --inspect-brk app",
       "nodeVersion": "node --version",
       "build": "webpack --config webpack.config.js --watch --progress"
   },
