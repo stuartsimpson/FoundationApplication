@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 
 import store from './store';
 
-import {MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
 import Layout from './components/Layout.jsx';
 
@@ -17,15 +17,13 @@ class App extends React.Component {
     }
 
     render() {
-        return (
-                <div>
-                    <MuiThemeProvider theme={theme}>
-                        <Provider store={store}>
-                            <Layout/>
-                        </Provider>
-                    </MuiThemeProvider>
-                </div>
-                );
+        return (<div>
+            <MuiThemeProvider theme={theme}>
+                <Provider store={store}>
+                    <Layout/>
+                </Provider>
+            </MuiThemeProvider>
+        </div>);
     }
 }
 

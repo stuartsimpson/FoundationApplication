@@ -11,7 +11,7 @@ var config = {
     mode:'development',
     devtool:'false',
     entry: {
-        core: APP_DIR + '/modules/index.jsx',
+        core: APP_DIR + '/modules/core/index.jsx',
         fndtn_UserAccount: APP_DIR + '/modules/fndtn/UserAccount/index.jsx',
         fndtn_UserAccountManager: APP_DIR + '/modules/fndtn/UserAccountManager/index.jsx',
         fndtn_ResourceManager: APP_DIR + '/modules/fndtn/ResourceManager/index.jsx',
@@ -43,7 +43,7 @@ var config = {
             {
                 test: /\.(js|jsx)$/,
                 include: APP_DIR,
-                use:['babel-loader']
+                use:[{loader:'babel-loader'}]
             }
         ]
     },

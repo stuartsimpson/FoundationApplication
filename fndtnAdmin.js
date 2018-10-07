@@ -91,7 +91,7 @@ switch (process.argv[2]) {
             clearSeedData(process.argv[3])
             break;
         }
-    case 'LoadAllSeedData':
+    case 'loadAllSeedData':
         {
             loadSeedData('fndtnAccessControl');
             loadSeedData('fndtnApplicationErrors');

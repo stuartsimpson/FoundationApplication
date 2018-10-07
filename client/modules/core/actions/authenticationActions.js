@@ -1,40 +1,38 @@
 import axios from 'axios';
-import cookies from '../../util/cookies';
+import cookies from '../../utils/cookies';
 
 //Actions
 import {setFooterMessage} from './footerActions';
 import {setUser, unsetUser} from './userActions';
 import {navigate} from './navigationActions';
 
-function authenticate(dispatch, credentials){
-    axios.post('/services/public/user/authentication', credentials)
-        .then( (res) => {
-            if(res.data.user){
-                dispatch(setFooterMessage('Authenticated'));
-                dispatch(setUser({user:res.data.user}));
-                dispatch(setAuthenticated({authenticated: true, token: res.data.token}));
-                var destinationURL = cookies.get('destinationURL') || '/';
-                destinationURL = decodeURIComponent(destinationURL);
-                dispatch(navigate(destinationURL));
-            } else {
-                dispatch(setFooterMessage('Faild Authentication'));
-            }
-        })
-        .catch((err) => {
+function authenticate(dispatch, credentials) {
+    axios.post('/services/fndtn/users/authentication', credentials).then((res) => {
+        if (res.data.user) {
+            dispatch(setFooterMessage('Authenticated'));
+            dispatch(setUser({user: res.data.user}));
+            dispatch(setAuthenticated({authenticated: true, token: res.data.token}));
+            var destinationURL = cookies.get('destinationURL') || '/';
+            destinationURL = decodeURIComponent(destinationURL);
+            dispatch(navigate(destinationURL));
+        } else {
             dispatch(setFooterMessage('Faild Authentication'));
-        });
+        }
+    }).catch((err) => {
+        dispatch(setFooterMessage('Faild Authentication'));
+    });
 };
 
-function cancelLogin(dispatch){
+function cancelLogin(dispatch) {
     dispatch(unsetAuthenticated());
     dispatch(unsetUser());
     cookies.delete('destinationURL');
     dispatch(navigate('/'));
-}
+};
 
-function logout(dispatch){
+function logout(dispatch) {
     //ToDo: need to add axios call to clear user session from the server
-    if(localStorage.getItem('authenticationState') || localStorage.getItem('userState')){
+    if (localStorage.getItem('authenticationState') || localStorage.getItem('userState')) {
         dispatch(unsetAuthenticated());
         dispatch(unsetUser());
         cookies.delete('destinationURL');
@@ -43,47 +41,29 @@ function logout(dispatch){
     }
 };
 
-function login(dispatch, token){
-    axios.get('/services/public/user/authentication/verify')
-        .then((res) => {
-            !res.data.valid ? dispatchLogin(dispatch) : dispatch(setFooterMessage('Authenticated'));
-        })
-        .catch((error) => {
-            dispatchLogin(dispatch);
-        });
+function login(dispatch, token) {
+    axios.get('/services/fndtn/users/authentication/verify').then((res) => {
+        if (!res.data.valid) {
+            dispatch(setFooterMessage('Enter Username/E-Mail and Password'));
+            disptach(navigate('/#/authenticate'));
+        } else {
+            dispatch(setFooterMessage('Authenticated'));
+        }
+    }).catch((error) => {
+        dispatchLogin(dispatch);
+    });
 };
 
-function dispatchLogin(dispatch){
-    dispatch(setFooterMessage('Enter Username/E-Mail and Password'));
-    disptach(navigate('/#/authenticate'));
-}
-
-function setAuthenticated(val){
-    return {
-        type: "SET_AUTHENTICATED",
-        payload: val
-    };
-}
-
-function unsetAuthenticated(){
-    return {
-        type: "UNSET_AUTHENTICATED",
-        payload: null
-    };
-}
-
-function openAuthenticationDialog(){
-    return {
-        type: "OPEN_AUTHENTICATION_DIALOG",
-        payload: null
-    };
+function setAuthenticated(val) {
+    return {type: "SET_AUTHENTICATED", payload: val};
 };
 
-function closeAuthenticationDialog(){
-    return {
-        type: "CLOSE_AUTHENTICATION_DIALOG",
-        payload: null
-    };
+function unsetAuthenticated() {
+    return {type: "UNSET_AUTHENTICATED"};
 };
 
-export {authenticate, login, logout, cancelLogin}
+function openAuthenticationDialog() {
+    return {type: "OPEN_AUTHENTICATION_DIALOG"};
+};
+
+export { authenticate, cancelLogin, login, logout };

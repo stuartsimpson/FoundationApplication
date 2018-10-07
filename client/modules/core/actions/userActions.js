@@ -1,15 +1,12 @@
-const userActions = {
-    setUser: (user) => {
-        return {
-            type: "SET_USER",
-            payload: user
-        };
-    },
-    unsetUser: () => {
-        return {
-            type: "UNSET_USER"
-        };
-    }
-}
+function setUser(user) {
+    return {type: "SET_USER", payload: user};
+};
 
-export userActions;
+function unsetUser() {
+    return {type: "UNSET_USER"};
+};
+
+export {
+    setUser,
+    unsetUser
+};
