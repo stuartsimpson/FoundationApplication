@@ -60,9 +60,20 @@ class AppSideNav extends React.Component {
     }
 
     row(menuItem, index){
-        return(
-                <MenuItem id={menuItem.rsourceURL} onclick={this.handleMenuSelection.bind(this)}>{menuItem.display}</MenuItem>
-        );
+        switch(menuItem.type){
+            case 'MenuItem':{
+                return(<MenuItem id={menuItem.rsourceURL} onclick={this.handleMenuSelection.bind(this)}>{menuItem.display}</MenuItem>);
+                break;
+            }
+            case 'MenuList':{
+                return(<MenuList>{menuItem.list.map((item, index) => this.row(item, index))}</MenuList>);
+                break;
+            }
+            case 'Divider':{
+                return(<Divider/>);
+                break;
+            }
+        }
     }
 
     render() {

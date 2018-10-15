@@ -16,7 +16,6 @@ class AppBody extends React.Component {
         return (
                 <Switch>
                     <Route exact path="/" render={() => (<WelcomePage/>)}/>
-                    <Route path="/authenticate" render={() => (<AuthenticationComponent dispatch={this.props.dispatch}/>)}/>
                 </Switch>
                 );
     }

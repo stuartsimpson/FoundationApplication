@@ -1,10 +1,10 @@
 import axios from 'axios';
-import cookies from '../../utils/cookies';
+import cookies from '../../../utils/cookies';
 
 //Actions
-import {setFooterMessage} from './footerActions';
-import {setUser, unsetUser} from './userActions';
-import {navigate} from './navigationActions';
+import {setFooterMessage} from '../../../core/actions/footerActions';
+import {setUser, unsetUser} from '../../../core/actions/userActions';
+import {navigate} from '../../../core/actions/navigationActions';
 
 function authenticate(dispatch, credentials) {
     axios.post('/services/fndtn/users/authentication', credentials).then((res) => {
