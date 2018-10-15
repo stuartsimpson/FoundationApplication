@@ -13,6 +13,8 @@ var config = {
     entry: {
         core: APP_DIR + '/modules/core/index.jsx',
         fndtn_UserAccount: APP_DIR + '/modules/fndtn/UserAccount/index.jsx',
+        fndtn_Home: APP_DIR + '/modules/fndtn/Home/index.jsx',
+        fndtn_Login: APP_DIR + '/modules/fndtn/Login/index.jsx',
         fndtn_UserAccountManager: APP_DIR + '/modules/fndtn/UserAccountManager/index.jsx',
         fndtn_ResourceManager: APP_DIR + '/modules/fndtn/ResourceManager/index.jsx',
         fndtn_RoleManager: APP_DIR + '/modules/fndtn/RoleManager/index.jsx',
@@ -49,13 +51,33 @@ var config = {
     },
     plugins: debug ?
     [
-        new visualizer({filename: './webpackStats.html'})
+        new visualizer({filename: './webpackStats.html'}),
+        new htmlWebpakPlugin()
     ] :
     [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
+        new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+        new htmlWebpakPlugin()
     ],
     optimization:{
+        splitChunks: {
+            cacheGroups:{
+                nodeModules:{
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'nodeModules',
+                    chunks: 'initial',
+                    minChunks: 2,
+                    enforce: true,
+                    priority: 10
+                },
+                core:{
+                    test:/[\\/]core[\\/]/,
+                    name: 'core',
+                    chunks: 'initial',
+                    minChunks: 2
+                }
+            }
+        }
     }
 };
 
