@@ -1,4 +1,4 @@
-import stateStorage from '../../../utils/stateStorage';
+import stateStorage from 'Utils/stateStorage';
 
 const defaultState = stateStorage.get('authenticationState') || {authenticated: false, open: true, drawerOpen: false};
 

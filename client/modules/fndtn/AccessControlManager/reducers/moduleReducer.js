@@ -1,4 +1,4 @@
-import stateStorage from '../../../utils/stateStorage';
+import stateStorage from 'Utils/stateStorage';
 
 const defaultState = {
     selectedTab: 1,

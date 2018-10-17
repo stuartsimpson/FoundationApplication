@@ -10,8 +10,8 @@ import {connect} from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 
-import AppHeader from '../../../core/components/AppHeader.jsx';
-import AppFooter from '../../../core/components/AppFooter.jsx';
+import AppHeader from 'Core/components/AppHeader.jsx';
+import AppFooter from 'Core/components/AppFooter.jsx';
 import UserAccountForm from './UserAccountForm.jsx';
 
 const styles = theme => ({

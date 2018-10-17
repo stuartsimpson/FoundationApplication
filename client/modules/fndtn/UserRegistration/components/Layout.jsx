@@ -11,9 +11,9 @@ import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 
 
-import AppHeader from '../../../core/components/AppHeader.jsx';
+import AppHeader from 'Core/components/AppHeader.jsx';
 import RegistrationForm from './RegistrationForm.jsx';
-import AppFooter from '../../../core/components/AppFooter.jsx';
+import AppFooter from 'Core/components/AppFooter.jsx';
 
 const styles = theme => ({
     layoutPaper:{

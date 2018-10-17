@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setFooterMessage} from '../../../core/actions/footerActions';
+import {setFooterMessage} from 'Core/actions/footerActions';
 
 function getModuleName(){
     return({

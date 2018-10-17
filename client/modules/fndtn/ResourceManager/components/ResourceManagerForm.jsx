@@ -15,7 +15,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
-import treeUtil from '../../../utils/treeUtil.js';
+import treeUtil from 'Utils/treeUtil.js';
 import ResourcePicker from './ResourcePicker.jsx';
 
 import {

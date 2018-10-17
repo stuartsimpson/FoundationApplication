@@ -19,7 +19,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 import {loadUsers, deleteUser} from '../actions/moduleActions';
-import {navigate} from '../../../core/actions/navigationActions';
+import {navigate} from 'Core/actions/navigationActions';
 
 class UserAccountManagerForm extends React.Component {
     constructor() {

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 import axios from 'axios';
-import Validation from '../../../utils/Validation';
-import navigate from '../../../core/actions/navigationActions';
+import Validation from 'Utils/Validation';
+import navigate from 'Core/actions/navigationActions';
 
 function setFieldErrorText(attribute, value){
     return({

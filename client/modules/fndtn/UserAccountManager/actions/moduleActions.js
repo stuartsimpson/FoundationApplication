@@ -6,7 +6,7 @@
 import axios from 'axios';
 
 //Actions
-import {setFooterMessage} from '../../../core/actions/footerActions';
+import {setFooterMessage} from 'Core/actions/footerActions';
 
 function setUsers(users){
     return({

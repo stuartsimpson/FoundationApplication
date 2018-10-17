@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 import axios from 'axios';
-import {setFooterMessage} from '../../../core/actions/footerActions';
+import {setFooterMessage} from 'Core/actions/footerActions';
 
 //Actions
 function setActiveTab(value){

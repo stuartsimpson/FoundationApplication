@@ -15,7 +15,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Collapse from '@material-ui/core/Collapse';
 import {withStyles} from '@material-ui/core/styles';
 
-import treeUtil from '../../../utils/treeUtil';
+import treeUtil from 'Utils/treeUtil';
 
 const styles = theme => ({treeListIdent: {marginLeft:'40px'}});
 

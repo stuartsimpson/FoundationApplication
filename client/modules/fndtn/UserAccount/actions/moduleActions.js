@@ -5,7 +5,7 @@
  */
 import axios from 'axios';
 
-import {setFooterMessage} from '../../../core/actions/footerActions';
+import {setFooterMessage} from 'Core/actions/footerActions';
 
 const DateTimeFormat = new Intl.DateTimeFormat('en-US', {day: "numeric", month: "long", year: "numeric"});
 

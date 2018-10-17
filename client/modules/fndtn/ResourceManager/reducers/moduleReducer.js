@@ -1,5 +1,5 @@
-import stateStorage from '../../../utils/stateStorage';
-import treeUtil from '../../../utils/treeUtil';
+import stateStorage from 'Utils/stateStorage';
+import treeUtil from 'Utils/treeUtil';
 
 const defaultState = {
     edit: false,

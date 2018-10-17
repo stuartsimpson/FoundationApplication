@@ -12,7 +12,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import Style from '../../../utils/FormStyle';
+import Style from 'Utils/FormStyle';
 
 import {authenticate, cancelLogin} from '../actions/moduleActions';
 

@@ -26,7 +26,7 @@ import {
     emailUsed,
     registerUser
 } from '../actions/moduleActions';
-import Validation from '../../../utils/Validation';
+import Validation from 'Utils/Validation';
 
 class RegistrationForm extends React.Component {
     constructor() {

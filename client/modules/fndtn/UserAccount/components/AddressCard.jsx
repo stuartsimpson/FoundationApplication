@@ -16,7 +16,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 
-import Style from '../../../utils/FormStyle';
+import Style from 'Utils/FormStyle';
 import {saveAddress, deleteAddress} from '../actions/moduleActions';
 
 class AddressCard extends React.Component {

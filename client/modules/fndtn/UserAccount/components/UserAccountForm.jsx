@@ -17,7 +17,7 @@ import DateCard from './DateCard.jsx';
 import BirthdayCard from './BirthdayCard.jsx';
 import AddressCard from './AddressCard.jsx';
 import WebsiteCard from './WebsiteCard.jsx';
-import Style from '../../../utils/FormStyle';
+import Style from 'Utils/FormStyle';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -31,7 +31,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 
-import {navigate} from '../../../core/actions/navigationActions';
+import {navigate} from 'Core/actions/navigationActions';
 import {loadUser} from '../actions/moduleActions';
 
 const styles = theme => ({

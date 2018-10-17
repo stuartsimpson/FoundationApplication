@@ -16,7 +16,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 
-import Style from '../../../utils/FormStyle';
+import Style from 'Utils/FormStyle';
 import {saveDate, deleteDate} from '../actions/moduleActions';
 
 const DateTimeFormat = new Intl.DateTimeFormat('en-US', {day: "numeric", month: "long", year: "numeric"});
