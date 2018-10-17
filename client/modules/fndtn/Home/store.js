@@ -4,7 +4,7 @@ import {createLogger} from 'redux-logger';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
-import coreReducers from '../../core/reducers/coreReducers';
+import coreReducers from 'Core/reducers/coreReducers';
 import moduleReducer from './reducers/moduleReducer';
 
 var coreReducersList = coreReducers();

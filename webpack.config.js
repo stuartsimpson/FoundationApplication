@@ -40,6 +40,12 @@ var config = {
         path: BUILD_DIR,
         filename: (chunkData) => { return('./'+chunkData.chunk.name.replace('_','/')+'/bundle.js')}
     },
+    resolve: {
+      alias: {
+        Core: path.resolve(__dirname, 'client/modules/core'),
+        Utils: path.resolve(__dirname, 'client/modules/utils')
+      }
+    },
     module: {
         rules: [
             {
