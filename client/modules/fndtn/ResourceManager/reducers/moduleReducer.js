@@ -6,18 +6,18 @@ const defaultState = {
     index:-1,
     resources:[],
     resourcePickerOpen:false,
+    dirList:[{
+        name:'server.routes',
+        indexPath:'0',
+        parentPath:'',
+        hasChildren:true,
+        children:[],
+        isOpen:false}],
     form:{
         _id:'',
         name:'',
         file:'',
         url:'',
-        dirList:[{
-            name:'routes',
-            indexPath:'0',
-            parentPath:'',
-            hasChildren:true,
-            children:[],
-            isOpen:false}],
         static:false,
         public:false,
         protected: false
@@ -32,17 +32,17 @@ var moduleReducer = (state = defaultState, action) => {
             break;
         }
         case 'FNDTN_RESOURCE_MANAGER_CLEAR_FORM':{
-            newState.form._id='';
-            newState.form.name='';
-            newState.form.file='';
-            newState.form.url='';
-            newState.form.dirList=[{
-                name:'routes',
+            newState.dirList=[{
+                name:'server.routes',
                 indexPath:'0',
                 parentPath:'',
                 hasChildren:true,
                 children:[],
                 isOpen:false}];
+            newState.form._id='';
+            newState.form.name='';
+            newState.form.file='';
+            newState.form.url='';
             newState.form.static=false;
             newState.form.public=false;
             newState.form.protected=false;
@@ -58,17 +58,17 @@ var moduleReducer = (state = defaultState, action) => {
             break;
         }
         case 'FNDTN_RESOURCE_MANAGER_SET_DIR_ROOT':{
-            newState.form.dirList[0].name = newState.form.static? 'public':'routes';
-            newState.form.dirList[0].children = [];
+            newState.dirList[0].name = action.payload.rootDir;
+            newState.dirList[0].children = [];
             break;
         }
         case 'FNDTN_RESOURCE_MANAGER_OPEN_CLOSE_DIRECTORY':{
-            newState.form.dirList = treeUtil.openCloseBranch(newState.form.dirList, action.payload.indexPath    );
+            newState.dirList = treeUtil.openCloseBranch(newState.dirList, action.payload.indexPath    );
             break;
         }
         case 'FNDTN_RESOURCE_MANAGER_LOAD_DIRECTORY_LIST':{
-            newState.form.dirList = treeUtil.addBranch(
-                newState.form.dirList,
+            newState.dirList = treeUtil.addBranch(
+                newState.dirList,
                 action.payload.directoryList,
                 action.payload.indexPath);
             break;

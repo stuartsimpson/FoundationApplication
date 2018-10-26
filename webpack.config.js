@@ -58,7 +58,15 @@ var config = {
     plugins: debug ?
     [
         new visualizer({filename: './webpackStats.html'}),
-        new htmlWebpakPlugin()
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/UserAccount/index.html', title:'User Account', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/Home/index.html', title:'Home', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/Login/index.html', title:'Login', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/UserAccountManager/index.html', title:'User Account Manager', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/ResourceManager/index.html', title:'Resource Manager', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/RoleManager/index.html', title:'Role Manager', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/MenuManager/index.html', title:'Menu Manager', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/AccessControlManager/index.html', title:'Access Control Manager', template:'html-webpack-template.html'}),
+        new htmlWebpakPlugin({inject: false, filename:'fndtn/UserRegistration/index.html', title:'User Registration', template:'html-webpack-template.html'}),
     ] :
     [
         new webpack.optimize.OccurenceOrderPlugin(),

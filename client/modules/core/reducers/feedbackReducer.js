@@ -3,13 +3,14 @@ const defaultFeedback = {
 };
 
 var feedbackReducer = (state = defaultFeedback, action) => {
+    var newState = JSON.parse(JSON.stringify(state));
     switch(action.type){
         case 'FEEDBACK_POST_MESSAGE': {
-            state = Object.assign({}, ...state, {message: action.payload});
+            newState.message = action.payload;
             break;
         }
     }
-    return(state);
+    return(newState);
 };
 
 export default feedbackReducer;

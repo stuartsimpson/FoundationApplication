@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -35,7 +35,7 @@ function _deleteResource(index){
 
 function deleteResource(dispatch, resource, index){
     var resourceId = resource._id;
-    axios.delete('/services/private/fndtn/resources/'+resourceId).then( (res) => {
+    axios.delete('/service/fndtn/management/resources/'+resourceId).then( (res) => {
         dispatch(_deleteResource(index));
         dispatch(setFooterMessage('Resource deleted.'));
     }).catch( (error) => {
@@ -59,7 +59,7 @@ function _loadDirecotryList(dirList, indexPath){
 }
 
 function loadDirecotryList(dispatch, path, indexPath){
-    axios.get('/services/private/listServicePackages/' + path.replace(/\//g,'.')).then((res) =>{
+    axios.get('/service/fndtn/management/listServicePackages/' + path.replace(/\//g,'.')).then((res) =>{
         dispatch(_loadDirecotryList(res.data, indexPath));
     }).catch((error) => {
         dispatch(setFooterMessage('Unable to load directory listing for path:'+path+' indexPath: '+indexPath+' error:'+error.message));
@@ -67,7 +67,7 @@ function loadDirecotryList(dispatch, path, indexPath){
 }
 
 function loadResources(dispatch, search){
-    axios.post('/services/private/fndtn/resources/find', search).then ((res) => {
+    axios.post('/service/fndtn/management/resources/find', search).then ((res) => {
         dispatch(setFooterMessage('Resources loaded.'));
         dispatch(setResources(res.data.resources));
     }).catch((error) => {
@@ -97,7 +97,7 @@ function _saveResource(resource, index){
 }
 
 function saveResource(dispatch, resource, index){
-    axios.post('/services/private/fndtn/resources', resource).then( (res) => {
+    axios.post('/service/fndtn/management/resources', resource).then( (res) => {
         dispatch(_saveResource(resource, index));
         dispatch(clearForm());
         dispatch(cancelEdit());
@@ -107,9 +107,10 @@ function saveResource(dispatch, resource, index){
     });
 }
 
-function setDirRoot(){
+function setDirRoot(rootDir){
     return({
-        type: 'FNDTN_RESOURCE_MANAGER_SET_DIR_ROOT'
+        type: 'FNDTN_RESOURCE_MANAGER_SET_DIR_ROOT',
+        payload:{rootDir:rootDir}
     });
 }
 
@@ -127,13 +128,6 @@ function setResources(resources){
     });
 }
 
-function toggleFormStaticValue(dispatch, staticValue){
-    var dirRoot = !staticValue? 'public' : 'routes';
-    dispatch(setFormValue('static', !staticValue));
-    dispatch(setDirRoot());
-    loadDirecotryList(dispatch, dirRoot, '0');
-}
-
 export {
     cancelEdit,
     clearForm,
@@ -146,7 +140,5 @@ export {
     openResourcePicker,
     saveResource,
     setFormValue,
-    setDirRoot,
-    toggleFormStaticValue
+    setDirRoot
 }
-

@@ -50,11 +50,11 @@ class AppSideNav extends React.Component {
                 break;
             }
             case 'home':{
-                navigate(this.props.dispatch, '/');
+                this.props.dispatch(navigate('/'));
                 break;
             }
             default:{
-                navigate(this.props.dispatch, '/dist/'+event.currentTarget.id);
+                this.props.dispatch(navigate('/modules/'+event.currentTarget.id));
             }
         }
     }

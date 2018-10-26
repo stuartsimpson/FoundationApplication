@@ -16,7 +16,7 @@ module.exports = function(middlewareInit){
 
 function registerResources(resources){
     resources.forEach( function(resource){
-        config.logger.debug('\tLoading Resource: '+resource.url);
+        config.logger.debug(`\tLoading ${resource.static?'Module':'Service'}: ${resource.url}`);
         acl.addResourceToACL(resource.url, {_id : resource._id, _static: resource.static, _public: resource.public, _protected: resource.protected});
         if(!resource.static){
             if(fs.existsSync(path.join(config.path.routes, resource.file))){

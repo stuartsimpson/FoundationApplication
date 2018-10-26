@@ -30,8 +30,7 @@ import {
     loadDirecotryList,
     openCloseDirectory,
     openResourcePicker,
-    setDirRoot,
-    toggleFormStaticValue} from '../actions/moduleActions';
+    setDirRoot} from '../actions/moduleActions';
 
 const styles = theme => ({root: {}});
 
@@ -48,10 +47,6 @@ class ResourceManagerForm extends React.Component {
         this.props.dispatch(setFormValue(event.currentTarget.id, !this.props.state.form[event.currentTarget.id]));
     }
 
-    toggleStaticValue(event){
-        toggleFormStaticValue(this.props.dispatch, this.props.state.form[event.currentTarget.id]);
-    }
-
     edit(event){
         var id = parseInt(event.currentTarget.id);
         var resource = Object.assign({}, this.props.state.resources[id]);
@@ -64,7 +59,7 @@ class ResourceManagerForm extends React.Component {
     }
 
     loadBranch(indexPath){
-        var node = treeUtil.findBranch(this.props.state.form.dirList, indexPath);
+        var node = treeUtil.findBranch(this.props.state.dirList, indexPath);
         loadDirecotryList(this.props.dispatch, node.parentPath+"/"+node.name, indexPath);
     }
 
@@ -101,7 +96,7 @@ class ResourceManagerForm extends React.Component {
     }
 
     add(event){
-        this.props.dispatch(clearForm());
+//        this.props.dispatch(clearForm());
         this.props.dispatch(editResource(this.props.state.form, -1));
         this.props.dispatch(openResourcePicker());
     }
@@ -109,12 +104,18 @@ class ResourceManagerForm extends React.Component {
     cancel(event){
         this.props.dispatch(clearForm());
         this.props.dispatch(cancelEdit());
-        this.props.dispatch(setDirRoot());
-        loadDirecotryList(this.props.dispatch, 'routes', '0');
+        this.props.dispatch(setDirRoot('server.routes'));
+        loadDirecotryList(this.props.dispatch, 'server.routes', '0');
     }
 
     save(){
         saveResource(this.props.dispatch, this.props.state.form, this.props.state.index);
+    }
+
+    setResourceDir(dir){
+        this.props.dispatch(setDirRoot(dir));
+        var branch = treeUtil.findBranch(this.props.state.dirList, '0');
+        loadDirecotryList(this.props.dispatch, dir, '0');
     }
 
     row(resource, index){
@@ -163,7 +164,8 @@ class ResourceManagerForm extends React.Component {
                 <Grid item xs={10}>
                     <Paper>
                         <ResourcePicker
-                            tree={this.props.state.form.dirList}
+                            tree={this.props.state.dirList}
+                            setResourceDir={this.setResourceDir.bind(this)}
                             open={this.props.state.resourcePickerOpen}
                             close={this.closeResourcePicker.bind(this)}
                             loadBranch={this.loadBranch.bind(this)}
@@ -234,25 +236,22 @@ class ResourceManagerForm extends React.Component {
                                     <TableCell padding="none">
                                         <Switch
                                             id="static"
-                                            name="static"
                                             checked={this.props.state.form.static}
-                                            onClick={this.toggleStaticValue.bind(this)}
+                                            onChange={this.toggleFormValue.bind(this)}
                                         />
                                     </TableCell>
                                     <TableCell padding="none">
                                         <Switch
                                             id="public"
-                                            name="public"
                                             checked={this.props.state.form.public}
-                                            onClick={this.toggleFormValue.bind(this)}
+                                            onChange={this.toggleFormValue.bind(this)}
                                         />
                                     </TableCell>
                                     <TableCell padding="none">
                                         <Switch
                                             id="protected"
-                                            name="protected"
                                             checked={this.props.state.form.protected}
-                                            onClick={this.toggleFormValue.bind(this)}
+                                            onChange={this.toggleFormValue.bind(this)}
                                         />
                                     </TableCell>
                                 </TableRow>
@@ -269,7 +268,7 @@ class ResourceManagerForm extends React.Component {
     }
     componentDidMount() {
         loadResources(this.props.dispatch, {});
-        var branch = treeUtil.findBranch(this.props.state.form.dirList, '0');
+        var branch = treeUtil.findBranch(this.props.state.dirList, '0');
         loadDirecotryList(this.props.dispatch, branch.name, branch.indexPath);
     }
 }

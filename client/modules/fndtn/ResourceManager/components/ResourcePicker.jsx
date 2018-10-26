@@ -8,6 +8,7 @@ import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
 
 import TreeList from './TreeList.jsx';
 
@@ -30,6 +31,10 @@ class ResourcePicker extends React.Component {
         this.props.openBranch(indexPath);
     }
 
+    handleChangeResourceDir(event){
+        this.props.setResourceDir(event.currentTarget.options[event.currentTarget.selectedIndex].value);
+    }
+
     selectedValue(value){
         this.props.selectedValue(value);
     }
@@ -41,6 +46,21 @@ class ResourcePicker extends React.Component {
                 open={this.props.open}
             >
                 <DialogTitle>Resource Picker</DialogTitle>
+                <TextField
+                    id="resourceType"
+                    select
+                    lable="Resource Type"
+                    value={this.props.tree[0].name}
+                    SelectProps={{
+                      native: true
+                    }}
+                    onChange={this.handleChangeResourceDir.bind(this)}
+                    helperText="Select Resource Type"
+                    margin="normal"
+                >
+                    <option key="server.routes" value="server.routes">Service</option>
+                    <option key="public.modules" value="public.modules">Modules</option>
+                </TextField>
                 <TreeList
                     tree={this.props.tree}
                     loadBranch={this.loadBranch.bind(this)}

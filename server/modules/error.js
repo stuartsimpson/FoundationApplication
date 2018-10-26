@@ -27,8 +27,7 @@ module.exports = function(routerInit){
     if (app.get('env') === 'development') {
         app.use(function(err, req, res, next) {
             config.logger.info('Development Error Loging');
-            res.status(err.status || 500);
-            res.send('error', {
+            res.status(err.status || 500).send({
             message: err.message,
             error: err
         });
@@ -38,8 +37,7 @@ module.exports = function(routerInit){
     // production error handler
     // no stacktraces leaked to user
     app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.send('error', {
+        res.status(err.status || 500).send({
             message: err.message,
             error: {}
         });

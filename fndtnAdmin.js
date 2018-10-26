@@ -45,14 +45,25 @@ function loadSeedData(model) {
         line = fixRecord(line);
         var tempJSON = JSON.parse(line);
         var record = new mongooseModel(tempJSON);
-        record.save((error, record) => {
-            if (error) {
-                console.log('unable to load record to mongodb');
-                console.log(error.message);
-            } else {
-                console.log(`${model}: ${record._id} loaded to mongodb`);
-            }
-        });
+        if(tempJSON._id){
+            record.save((error, record) => {
+                if (error) {
+                    console.log('unable to load record to mongodb');
+                    console.log(error.message);
+                } else {
+                    console.log(`${model}: ${record._id} loaded to mongodb`);
+                }
+            });
+        } else {
+            mongooseModel.insertMany([tempJSON], (error, records) => {
+                if(error){
+                    console.log('unable to create record in mongodb');
+                    console.log(error.message);
+                } else {
+                    console.log(`${model}: ${records[0]._id} loaded to mongodb`);
+                }
+            })
+        }
     }).on('close', (line) => {
         if (line) {
             console.log('record not processed');
@@ -76,8 +87,8 @@ function clearSeedData(model) {
         } else {
             console.log(`seed datat deleted for ${model}`);
         }
+        db.close();
     });
-    db.close();
 }
 
 switch (process.argv[2]) {

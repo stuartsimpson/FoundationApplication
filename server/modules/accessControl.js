@@ -9,9 +9,13 @@ function accessControl(req, res, next) {
     var resource = acl.getResourceId(req.url);
     var collection = config.app.db.collection(config.collections.accessControl);
 
-    config.logger.debug("AccessControl:Resource._id:" + resource._id );
+    if(!resource._id){
+        config.logger.error("AccessControl:Resource not registerd:" + req.url );
+    } else {
+        config.logger.debug("AccessControl:Resource._id:" + resource._id );
+    }
 
-    if(resource._public){
+    if(resource._public || true){
         //Access Granted
         next();
     } else {
@@ -19,7 +23,7 @@ function accessControl(req, res, next) {
             if(error){
                 if(resource._static){
                     res.cookie('destinationURL', req.url);
-                    res.redirect("/#/authenticate");
+                    res.redirect("/Login");
                 } else {
                     applicationErrorHandler.getError('APP',1002).then(
                         (error) => {
