@@ -9,7 +9,7 @@ var app = require('../../app');
 module.exports = function(middlewareInit){
     config.logger.info('Step 3 - resources.init');
     return(
-        config.app.db.collection(config.collections.resources).find({}).toArray()
+        config.app.db.collection(config.collections.resources).find({}).sort({static:1}).toArray()
         .then(registerResources)
     );
 };
