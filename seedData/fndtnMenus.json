@@ -1,9 +1,9 @@
-{"_id":{"$oid":"5bcb8a7eafaff05548422324"},"menuType":"menuItem","resourceURL":"/modules/fndtn/AccessControlManager","display":"Access Control Manager"}
-{"_id":{"$oid":"5bcb8a7eafaff05548422325"},"menuType":"menuItem","resourceURL":"/modules/fndtn/Home","display":"Home"}
-{"_id":{"$oid":"5bcb8a7eafaff05548422326"},"menuType":"menuItem","resourceURL":"/modules/fndtn/Login","display":"Login"}
-{"_id":{"$oid":"5bcb8a7eafaff05548422327"},"menuType":"menuItem","resourceURL":"/modules/fndtn/MenuManager","display":"Menu Manager"}
-{"_id":{"$oid":"5bcb8a7eafaff05548422328"},"menuType":"menuItem","resourceURL":"/modules/fndtn/ResourceManager","display":"Resource Manager"}
-{"_id":{"$oid":"5bcb8a7eafaff05548422329"},"menuType":"menuItem","resourceURL":"/modules/fndtn/RoleManager","display":"Role Manager"}
-{"_id":{"$oid":"5bcb8a7eafaff0554842232a"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserRegistration","display":"User Registration"}
-{"_id":{"$oid":"59e3d45eab2d63052828c1c3"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserAccount","display":"User Account"}
-{"_id":{"$oid":"5a6f79d2dbddab0c18af49b0"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserAccountManager","display":"User Account Manager"}
+{"_id":{"$oid":"5bcb8a7eafaff05548422324"},"menuType":"menuItem","resourceURL":"/modules/fndtn/AccessControlManager","display":"Access Control Manager","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff05548422325"},"menuType":"menuItem","resourceURL":"/modules/fndtn/Home","display":"Home","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff05548422326"},"menuType":"menuItem","resourceURL":"/modules/fndtn/Login","display":"Login","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff05548422327"},"menuType":"menuItem","resourceURL":"/modules/fndtn/MenuManager","display":"Menu Manager","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff05548422328"},"menuType":"menuItem","resourceURL":"/modules/fndtn/ResourceManager","display":"Resource Manager","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff05548422329"},"menuType":"menuItem","resourceURL":"/modules/fndtn/RoleManager","display":"Role Manager","__v":0}
+{"_id":{"$oid":"5bcb8a7eafaff0554842232a"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserRegistration","display":"User Registration","__v":0}
+{"_id":{"$oid":"59e3d45eab2d63052828c1c3"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserAccount","display":"User Account","__v":0}
+{"_id":{"$oid":"5a6f79d2dbddab0c18af49b0"},"menuType":"menuItem","resourceURL":"/modules/fndtn/UserAccountManager","display":"User Account Manager","__v":0}

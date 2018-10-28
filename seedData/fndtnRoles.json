@@ -1,2 +1,2 @@
-{"_id":{"$oid":"59eecdc713ab8e279c17902d"},"name":"administrator"}
-{"_id":{"$oid":"5a5700d7e75296175cf6b693"},"name":"user"}
+{"_id":{"$oid":"59eecdc713ab8e279c17902d"},"name":"administrator","__v":0}
+{"_id":{"$oid":"5a5700d7e75296175cf6b693"},"name":"user","__v":0}

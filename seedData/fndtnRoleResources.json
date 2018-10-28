@@ -1,7 +1,7 @@
-{"_id":{"$oid":"59eed0bb13ab8e279c17902e"},"_get":true,"_put":true,"_post":false,"_delete":false,"resourceId":{"$oid":"58fbfaa8d65ad123a8754f8d"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a6d24c05405d63998a1ca6d"},"_get":true,"_put":true,"_post":false,"_delete":false,"resourceId":{"$oid":"59b82ce2e5a94d2f681cf390"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a6d24fa5405d63998a1ca6e"},"_get":true,"_put":null,"_post":false,"_delete":false,"resourceId":{"$oid":"598ddfb479a5732d308105e6"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a6d67645405d63998a1ca6f"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"59c07e90d5391a2e208dc78d"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a6d67725405d63998a1ca70"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"5a0bcf521d77e638f815862f"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a6d67865405d63998a1ca71"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"5a5b999cb0aa9d1ab476fa46"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
-{"_id":{"$oid":"5a87a92363691a20d4d5588f"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"59cd42331098f21110ce2af8"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"}}
+{"_id":{"$oid":"59eed0bb13ab8e279c17902e"},"_get":true,"_put":true,"_post":false,"_delete":false,"resourceId":{"$oid":"58fbfaa8d65ad123a8754f8d"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a6d24c05405d63998a1ca6d"},"_get":true,"_put":true,"_post":false,"_delete":false,"resourceId":{"$oid":"59b82ce2e5a94d2f681cf390"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a6d24fa5405d63998a1ca6e"},"_get":true,"_put":null,"_post":false,"_delete":false,"resourceId":{"$oid":"598ddfb479a5732d308105e6"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a6d67645405d63998a1ca6f"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"59c07e90d5391a2e208dc78d"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a6d67725405d63998a1ca70"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"5a0bcf521d77e638f815862f"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a6d67865405d63998a1ca71"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"5a5b999cb0aa9d1ab476fa46"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
+{"_id":{"$oid":"5a87a92363691a20d4d5588f"},"_get":true,"_put":true,"_post":true,"_delete":true,"resourceId":{"$oid":"59cd42331098f21110ce2af8"},"roleId":{"$oid":"59eecdc713ab8e279c17902d"},"__v":0}
