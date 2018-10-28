@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -56,7 +56,7 @@ function _deleteResource(index){
 }
 
 function saveRole(dispatch, role, index){
-    axios.post('/services/private/fndtn/roles', role).then( (res) => {
+    axios.post('/service/fndtn/management/roles', role).then( (res) => {
         dispatch(_saveRole(role, index));
         dispatch(clearForm());
         dispatch(cancelEdit());
@@ -68,7 +68,7 @@ function saveRole(dispatch, role, index){
 
 function deleteRole(dispatch, role, index){
     var roleId = role._id;
-    axios.delete('/services/private/fndtn/roles/'+roleId).then( (res) => {
+    axios.delete('/service/fndtn/management/roles/'+roleId).then( (res) => {
         dispatch(_deleteRole(index));
         dispatch(setFooterMessage('Role deleted.'));
     }).catch( (error) => {
@@ -78,7 +78,7 @@ function deleteRole(dispatch, role, index){
 }
 
 function loadRoles(dispatch, search){
-    axios.post('/services/private/fndtn/roles/find', search).then ((res) => {
+    axios.post('/service/fndtn/management/roles/find', search).then ((res) => {
         dispatch(setFooterMessage('Roles loaded.'));
         dispatch(setRoles(res.data.roles));
     }).catch((error) => {
@@ -88,4 +88,3 @@ function loadRoles(dispatch, search){
 };
 
 export {loadRoles, setFormValue, editRole, saveRole, cancelEdit, deleteRole, clearForm}
-

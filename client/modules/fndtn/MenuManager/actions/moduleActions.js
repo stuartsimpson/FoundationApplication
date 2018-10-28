@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -56,7 +56,7 @@ function _deleteResource(index){
 }
 
 function saveMenu(dispatch, menu, index){
-    axios.post('/services/private/fndtn/menus', menu).then( (res) => {
+    axios.post('/service/fndtn/management/menus', menu).then( (res) => {
         dispatch(_saveMenu(menu, index));
         dispatch(clearForm());
         dispatch(cancelEdit());
@@ -68,7 +68,7 @@ function saveMenu(dispatch, menu, index){
 
 function deleteMenu(dispatch, menu, index){
     var menuId = menu._id;
-    axios.delete('/services/private/fndtn/menus/'+menuId).then( (res) => {
+    axios.delete('/service/fndtn/management/menus/'+menuId).then( (res) => {
         dispatch(_deleteMenu(index));
         dispatch(setFooterMessage('Menu deleted.'));
     }).catch( (error) => {
@@ -78,7 +78,7 @@ function deleteMenu(dispatch, menu, index){
 }
 
 function loadMenus(dispatch, search){
-    axios.post('/services/private/fndtn/menus/find', search).then ((res) => {
+    axios.post('/service/fndtn/management/menus/find', search).then ((res) => {
         dispatch(setFooterMessage('Menus loaded.'));
         dispatch(setMenus(res.data.menus));
     }).catch((error) => {
@@ -88,4 +88,3 @@ function loadMenus(dispatch, search){
 };
 
 export {loadMenus, setFormValue, editMenu, saveMenu, cancelEdit, deleteMenu, clearForm}
-

@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,7 +31,7 @@ function _deleteUser(index){
 
 function deleteUser(dispatch, user, index){
     var userId = user._id;
-    axios.delete('/services/private/fndtn/users/'+userId).then( (res) => {
+    axios.delete('/service/fndtn/management/users/'+userId).then( (res) => {
         dispatch(_deleteUser(index));
         dispatch(setFooterMessage('User deleted.'));
     }).catch( (error) => {
@@ -41,7 +41,7 @@ function deleteUser(dispatch, user, index){
 }
 
 function loadUsers(dispatch, search){
-    axios.post('/services/private/fndtn/userAccountManager/find', search).then ((res) => {
+    axios.post('/service/fndtn/management/userAccountManager/find', search).then ((res) => {
         dispatch(setFooterMessage('Users loaded.'));
         dispatch(setUsers(res.data.users));
     }).catch((error) => {
@@ -51,4 +51,3 @@ function loadUsers(dispatch, search){
 };
 
 export {loadUsers, deleteUser}
-

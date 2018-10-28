@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -122,11 +122,11 @@ function deleteWebsite(index){
 }
 
 function loadUser(dispatch, id){
-    var service = '/services/private/fndtn/users';
+    var service = '/service/fndtn/management/users';
     if(id){
-        service = '/services/private/fndtn/userAccountManager/'+id;
+        service = '/service/fndtn/management/userAccountManager/'+id;
     }
-    
+
     axios.get(service).then ((res) => {
         dispatch(setFooterMessage('User loaded.'));
         dispatch(setUser(res.data.user));

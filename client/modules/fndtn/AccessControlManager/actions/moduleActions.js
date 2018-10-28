@@ -57,7 +57,7 @@ function setSelectedRoleId(roleId){
 }
 
 function saveRoleResource(dispatch, roleResource){
-    axios.post('/services/private/fndtn/roleResources', roleResource)
+    axios.post('/service/fndtn/management/roleResources', roleResource)
     .then((res)=>{
         loadRoleResources(dispatch,roleResource.roleId);
     }).catch((error)=>{
@@ -67,7 +67,7 @@ function saveRoleResource(dispatch, roleResource){
 }
 
 function loadRoles(dispatch, search){
-     axios.post('/services/private/fndtn/roles/find', search).then ((res) => {
+     axios.post('/service/fndtn/management/roles/find', search).then ((res) => {
         dispatch(setFooterMessage('Roles loaded.'));
         dispatch(setRoles(res.data.roles));
     }).catch((error) => {
@@ -77,7 +77,7 @@ function loadRoles(dispatch, search){
 }
 
 function deleteRoleResource(dispatch, roleResourceId, roleId){
-    axios.delete('/services/private/fndtn/roleResources/'+roleResourceId).then((res)=>{
+    axios.delete('/service/fndtn/management/roleResources/'+roleResourceId).then((res)=>{
         dispatch(setFooterMessage('Role resource '+roleResourceId+' has been removed.'));
         loadRoleResources(dispatch, roleId);
     }).catch((error) =>{
@@ -111,7 +111,7 @@ function addRoleResource(dispatch, roleId, resource){
 }
 
 function loadAvailableResources(dispatch, search){
-     axios.post('/services/private/fndtn/resources/find', search).then ((res) => {
+     axios.post('/service/fndtn/management/resources/find', search).then ((res) => {
         dispatch(setFooterMessage('Available Resources loaded.'));
         dispatch(setAvailableResources(res.data.resources));
     }).catch((error) => {
@@ -121,7 +121,7 @@ function loadAvailableResources(dispatch, search){
 }
 
 function loadAvailableMenus(dispatch, search){
-     axios.post('/services/private/fndtn/menus/find', search).then ((res) => {
+     axios.post('/service/fndtn/management/roles/find', search).then ((res) => {
         dispatch(setFooterMessage('Available Menus loaded.'));
         dispatch(setAvailableMenus(res.data.menus));
     }).catch((error) => {
@@ -131,7 +131,7 @@ function loadAvailableMenus(dispatch, search){
 }
 
 function loadRoleResources(dispatch, roleId){
-     axios.get('/services/private/fndtn/roleResources/findByRoleId/'+roleId).then ((res) => {
+     axios.get('/service/fndtn/management/roleResources/findByRoleId/'+roleId).then ((res) => {
         dispatch(setFooterMessage('Role Resources loaded.'));
         dispatch(setRoleResources(res.data.roleResources));
     }).catch((error) => {

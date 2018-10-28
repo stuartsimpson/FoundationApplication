@@ -67,7 +67,7 @@ class AccessControlManager extends React.Component {
                         </Grid>
                         <Grid container>
                             <Grid item xs={2}>
-                                <AppBar position="Static" color="primary">
+                                <AppBar position="static" color="primary">
                                     <Typography variant="title" align="center">
                                         Role
                                     </Typography>
