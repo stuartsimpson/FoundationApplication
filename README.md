@@ -1,2 +1,37 @@
-# FoundationApplication
-This is intended to be an Application Foundation that will allow developers to focus on building Business Functionality into an Enterprise Application rather than dealing with Authentication, Roles and Permissions.  This is not intended for small SPA application but rather the ability to create multiple SPA application or forms that fit into a standard framework utilizing well known technologies.  The initial stack is MERN (Mongo, Express, React, Node).  This frame strives not to limit the developers from choosing other storage and UI technologies for individual SPA applications. However the core Foundation modules (fndtn) should consistently use the MERN stack. 
+## Welcome to GitHub Pages
+
+You can use the [editor on GitHub](https://github.com/stuartsimpson/FoundationApplication/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+### Markdown
+
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```markdown
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/stuartsimpson/FoundationApplication/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
